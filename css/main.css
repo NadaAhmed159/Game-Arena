@@ -1,0 +1,449 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+:root {
+  --main-color: #cbfe1c;
+  --main-black: #0b0e13;
+}
+body {
+  font-family: "Chakra Petch", sans-serif;
+  color: #fff;
+}
+body::selection {
+  color: var(--main-black);
+  background-color: var(--main-color);
+}
+h1,
+h2,
+h3 {
+  font-family: "Days One", sans-serif;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.h-16{
+height: 50px;
+}
+/***** logo *****/
+.logo {
+  color: var(--main-color);
+  font-size: 1.25rem;
+}
+.logo span {
+  color: var(--main-color);
+}
+/***** End logo *****/
+/***** shiny button *****/
+.shiny-button {
+  background-color: var(--main-color);
+  color: var(--main-black);
+  font-size: 1.125rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+.shiny-button:hover {
+  background-color: #a8d321;
+}
+
+/***** End shiny button *****/
+
+/***** section  *****/
+.section {
+  background-color: var(--main-black);
+}
+.section-head {
+  text-align: center;
+}
+.section-head span {
+  color: var(--main-color);
+}
+.section-head h2 {
+  font-size: 28px;
+  margin: 0;
+}
+.section-head p {
+  font-size: 1.75rem;
+}
+.section-head > span {
+  letter-spacing: 0.2rem;
+}
+
+.section-head > span::after {
+  content: "";
+  background-color: var(--main-color);
+  width: 4rem;
+  height: 0.125rem;
+  position: absolute;
+  top: 50%;
+  right: -5rem;
+  border-top-right-radius: 100%;
+  border-bottom-right-radius: 100%;
+  transform: translateY(-50%);
+}
+.section-head > span::before {
+  content: "";
+  background-color: var(--main-color);
+  width: 4rem;
+  height: 0.125rem;
+  position: absolute;
+  top: 50%;
+  left: -5rem;
+  border-top-left-radius: 100%;
+  border-bottom-left-radius: 100%;
+  transform: translateY(-50%);
+}
+
+/***** End section  *****/
+/***** nav *****/
+nav {
+  background-color: var(--main-black);
+  border-bottom: 0.0625rem solid #1e2939;
+}
+nav .navbar-toggler-icon:hover {
+  color: var(--main-color);
+}
+nav .nav-item a.active {
+  color: var(--main-color) !important;
+}
+nav .sign span {
+  font-size: 1.25rem;
+  transition: all 0.3s;
+}
+nav .sign span :hover {
+  color: var(--main-color);
+}
+/***** End nav *****/
+
+/***** header *****/
+header {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.9)), url(../images/hero-bg-H6PoyNYD.jpg);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+h1 span {
+  color: var(--main-color);
+}
+header p {
+  color: #d1d5dc;
+  line-height: 26px;
+}
+header .hero-img {
+  height: 380px;
+  border: 4px solid var(--main-color);
+}
+header .hero-img .stat {
+  background-color: #0b0e13;
+  left: -8px;
+  bottom: -16px;
+  border: 1px solid #364153;
+}
+header .hero-img .stat > span {
+  font-size: 1.25rem;
+  color: var(--main-color);
+}
+header .hero-img .stat p {
+  color: #99a1af;
+  line-height: 1rem;
+  font-size: 0.75rem;
+}
+header button.tournments {
+  color: var(--main-color);
+  border: 0.125rem solid var(--main-color);
+  background-color: transparent;
+  font-size: 1.125rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+header button.tournments:hover {
+  color: var(--main-black);
+  background-color: var(--main-color);
+}
+/***** End header *****/
+
+/***** our games *****/
+
+.our-games .carousol-img .slide-head span {
+  color: #fff;
+}
+.our-games .carousol-img .slide-head span i {
+  color: var(--main-color);
+}
+.our-games .carousol-img {
+  aspect-ratio: 4/ 3;
+}
+.our-games .actions .view-all {
+  background-color: var(--main-black);
+  color: var(--main-color);
+  border: 0.125rem solid var(--main-color);
+  transition: all 0.3s;
+}
+.our-games .actions .view-all:hover {
+  background-color: var(--main-color);
+  color: var(--main-black);
+}
+.our-games .actions button {
+  background-color: var(--main-black);
+  color: #99a1af;
+  border: 0.125rem solid #364153;
+  padding: 12px;
+  border-radius: 50%;
+  font-size: 1.25rem;
+  transition: all 0.5s;
+}
+.our-games .actions button:hover {
+  color: var(--main-color);
+  border-color: var(--main-color);
+}
+/***** End our games *****/
+
+marquee > div {
+  display: inline-block;
+  margin-inline: 12px;
+  width: 100px;
+  height: 100px;
+}
+/************  what we do ************/
+.arrow-top {
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 15px solid var(--main-color);
+  rotate: -45deg;
+  position: absolute;
+  left: 12px;
+  top: 16px;
+  transform: translateX(-260%);
+  transform: translateY(-260%);
+  transition: all 0.3s;
+}
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-bottom: 15px solid var(--main-color);
+  rotate: 135deg;
+  position: absolute;
+  right: 12px;
+  bottom: 16px;
+  transform: translateX(-260%);
+  transform: translateY(-260%);
+  transition: all 0.3s;
+}
+.what-we-do::after {
+  content: "";
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--main-color) 20%,
+    var(--main-color) 80%,
+    transparent
+  );
+  width: 80%;
+  max-width: 600px;
+  height: 2px;
+  box-shadow:
+    0 0 10px var(--main-color),
+    0 0 20px #cbfe1c4d;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.what-we-do .item .inner {
+  background-color: #1a1a1a;
+  border: 0.0625rem solid #1e2939;
+  aspect-ratio: 1;
+  transition: all 0.3s;
+  overflow: hidden;
+}
+.what-we-do .item .inner:hover {
+  border-color: var(--main-color);
+}
+.what-we-do .item .inner:hover .arrow-top {
+  transform: translate(0);
+}
+.what-we-do .item .inner:hover .arrow-down {
+  transform: translate(0);
+}
+.what-we-do .item .inner:hover span {
+  background-color: var(--main-color);
+  color: var(--main-black);
+}
+.what-we-do .item .inner span {
+  background-color: #1e2939;
+  color: var(--main-color);
+  padding-block: 12px;
+  transition: all 0.3s;
+}
+.what-we-do .item .inner h3 {
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+/***** End what we do *****/
+
+/***** our team *****/
+.our-team .section-head p,
+.cta .section-head p {
+  font-size: 1.25rem;
+  color: #99a1af;
+  font-weight: 400;
+}
+.our-team .member .layer {
+  backdrop-filter: grayscale() brightness(0.9);
+  inset: 0;
+  position: absolute;
+  transition: all 0.8s;
+}
+.our-team .member:hover .layer {
+  transform: translateY(-100%);
+}
+.our-team .member .content h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+.our-team .member .content .role {
+  font-size: 14px;
+  color: var(--main-color);
+}
+.our-team .member .content .atchivments {
+  font-size: 12px;
+  color: #99a1af;
+}
+.our-team .member .content .nick-name {
+  color: var(--main-color);
+  writing-mode: vertical-rl;
+  font-size: 1.125rem;
+  letter-spacing: 1px;
+  justify-content: center;
+  align-items: center;
+}
+/*   End our team *****/
+/***** cta *****/
+.cta {
+  background-color: #0e141f;
+}
+.cta .links {
+  background: linear-gradient(90deg, #cbfe1c, #05df72);
+  color: var(--main-black);
+  padding: 32px;
+}
+.cta .links span {
+  color: var(--main-color);
+  background-color: var(--main-black);
+  width: 48px;
+  height: 48px;
+  transition: all 0.15s;
+}
+.cta .links span:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+.cta .field {
+  background-color: #1e2939;
+  padding: 2rem 2rem 3.5rem;
+}
+.cta .field span {
+  background-color: var(--main-color);
+  color: var(--main-black);
+}
+.cta .field .content p {
+  color: #99a1af;
+}
+.cta .cta-form {
+  background-color: #1e2939;
+  padding: 2rem;
+}
+.cta .cta-form textarea {
+  resize: none;
+}
+.cta .cta-form input::placeholder,
+.cta .cta-form textarea::placeholder {
+  color: #999;
+}
+.cta .cta-form input,
+.cta .cta-form select,
+.cta .cta-form textarea {
+  padding: 0.75rem 1rem;
+  background-color: #364153;
+  border: 0.0625rem solid #4a5565;
+  color: #fff;
+}
+.cta .cta-form input:focus,
+.cta .cta-form select:focus,
+.cta .cta-form textarea:focus {
+  border: 0.125rem solid var(--main-color);
+  outline: none;
+}
+.cta .cta-form textarea {
+  min-height: 7.5rem;
+}
+.cta .cta-form .check {
+  transform: scale(2);
+  margin-inline: 0.5rem;
+}
+.cta .cta-form .check-p {
+  color: #99a1af;
+  font-size: 0.875rem;
+}
+
+.cta .cta-form button i {
+  color: var(--main-black);
+}
+.cta .cta-foot span {
+  color: var(--main-color);
+}
+.cta .cta-foot p {
+  font-size: 0.875rem;
+  color: #99a1af;
+}
+.cta .cta-foot {
+  border-top: 0.0625rem solid #364153;
+}
+
+/***** End cta *****/
+/***** footer *****/
+footer {
+  background-color: #000;
+}
+footer > * {
+  color: #99a1af;
+}
+footer h3 {
+  color: #fff !important;
+}
+footer .social-links {
+  font-size: 1.25rem;
+}
+footer .social-links a,
+footer .games a,
+footer .tournaments a,
+footer .Support a,
+footer .policy a {
+  transition: all 0.2s;
+}
+footer .footer .games a:hover,
+a:hover,
+footer .games a:hover,
+footer .tournaments a:hover,
+footer .Support a:hover,
+footer .policy a:hover {
+  color: var(--main-color);
+}
+footer .policy {
+  border-top: 0.0625rem solid #1e2939;
+}
+/***** End footer *****/
