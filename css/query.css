@@ -15,6 +15,12 @@
 .section-head p {
   font-size: 3rem;
 }
+.track {
+  animation: scroll 20s linear infinite;
+}
+.track.reverse{
+  animation: scroll-back 20s linear infinite;
+}
 
 }
 @media screen and (min-width:992px) {
@@ -22,6 +28,11 @@
     left: -20px;
     bottom: -20px;
   }
+  .what-we-do .item .inner h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
 }
 @media screen and (min-width:1200px) {
   header .hero-img .stat {

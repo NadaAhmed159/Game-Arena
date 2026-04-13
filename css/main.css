@@ -29,8 +29,8 @@ ul {
   padding: 0;
   margin: 0;
 }
-.h-16{
-height: 50px;
+.h-16 {
+  height: 50px;
 }
 /***** logo *****/
 .logo {
@@ -43,17 +43,34 @@ height: 50px;
 /***** End logo *****/
 /***** shiny button *****/
 .shiny-button {
-  background-color: var(--main-color);
-  color: var(--main-black);
-  font-size: 1.125rem;
-  font-weight: 700;
   cursor: pointer;
+  font-size: 1.125rem;
   transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
 }
-.shiny-button:hover {
-  background-color: #a8d321;
+.shiny-button::before {
+  content: "";
+  background: linear-gradient(90deg, #0000, #fff6, #0000);
+  width: 100%;
+  height: 100%;
+  transition: left 0.6s;
+  position: absolute;
+  top: 0;
+  left: -100%;
+}
+.shiny-button:hover::before {
+  left: 100%;
 }
 
+.shiny-start {
+  background-color: var(--main-color);
+  color: var(--main-black);
+  border: transparent;
+}
+.shiny-start:hover {
+  background-color: #a8d321;
+}
 /***** End shiny button *****/
 
 /***** section  *****/
@@ -76,22 +93,19 @@ height: 50px;
 .section-head > span {
   letter-spacing: 0.2rem;
 }
-
-.section-head > span::after {
+.section-head > span::before {
   content: "";
-  background-color: var(--main-color);
+  background-image: linear-gradient(to right, #cbfe1c, #cbfe1c, transparent);
   width: 4rem;
   height: 0.125rem;
   position: absolute;
   top: 50%;
   right: -5rem;
-  border-top-right-radius: 100%;
-  border-bottom-right-radius: 100%;
   transform: translateY(-50%);
 }
-.section-head > span::before {
+.section-head > span::after {
   content: "";
-  background-color: var(--main-color);
+  background-image: linear-gradient(to right, transparent, #cbfe1c, #cbfe1c);
   width: 4rem;
   height: 0.125rem;
   position: absolute;
@@ -161,9 +175,6 @@ header button.tournments {
   color: var(--main-color);
   border: 0.125rem solid var(--main-color);
   background-color: transparent;
-  font-size: 1.125rem;
-  cursor: pointer;
-  transition: all 0.3s;
 }
 header button.tournments:hover {
   color: var(--main-black);
@@ -172,15 +183,70 @@ header button.tournments:hover {
 /***** End header *****/
 
 /***** our games *****/
-
-.our-games .carousol-img .slide-head span {
-  color: #fff;
+.overlay-down {
+  position: absolute;
+  bottom: 12px;
+  left: 32px;
+  font-size: 18px;
+  color: #000;
+  transform: translateY(150%);
+  transition: all 0.3s ease;
 }
-.our-games .carousol-img .slide-head span i {
+.overlay-up {
+  position: absolute;
+  top: 12px;
+  left: 20px;
+  transform: translateY(-200%);
+
+  transition: all 0.3s ease;
+}
+.overlay-up span {
+  background-color: #2f461ea4;
+  border-radius: 1.5rem;
+  font-size: 12px;
+  padding: 8px 12px;
+}
+.overlay-up span i {
   color: var(--main-color);
 }
+
+.card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(203, 254, 28, 0.75) 0%,
+    rgba(203, 254, 28, 0.25) 40%,
+    rgba(203, 254, 28, 0.1) 65%,
+    rgba(203, 254, 28, 0) 85%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.carousol-img:hover .card-overlay {
+  opacity: 1;
+}
+
 .our-games .carousol-img {
   aspect-ratio: 4/ 3;
+  transition: all 0.3s;
+  border: 2px solid transparent;
+}
+.our-games .carousol-img:hover {
+  border-color: var(--main-color);
+}
+.our-games .carousol-img img {
+transition: all 0.3s;
+}
+.our-games .carousol-img:hover img {
+  transform: scale(1.1);
+}
+.our-games .carousol-img:hover ~ .overlay-up {
+  transform: translateY(0);
+}
+.our-games .carousol-img:hover ~ .overlay-down {
+  transform: translateY(0);
 }
 .our-games .actions .view-all {
   background-color: var(--main-black);
@@ -207,11 +273,73 @@ header button.tournments:hover {
 }
 /***** End our games *****/
 
-marquee > div {
-  display: inline-block;
-  margin-inline: 12px;
+.scroll {
+  background-color: var(--main-black);
+  background-image: radial-gradient(
+    ellipse 60% 45% at center,
+    #cbfe1c 0%,
+    #3f6901 50%,
+    #0b0e13 100%
+  );
+  position: relative;
+  padding: 30px;
+  overflow: hidden;
+}
+
+.scroll img {
   width: 100px;
   height: 100px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.track {
+  display: flex;
+  gap: 20px;
+  animation: scroll 10s linear infinite;
+}
+.track.reverse {
+  animation: scroll-back 10s linear infinite;
+}
+
+.track img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-back {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0%);
+  }
+}
+
+.slider .background {
+  background-image: radial-gradient(
+    ellipse 35% 50% at center,
+    #cbfe1c 0%,
+    #3f6901 50%,
+    #0b0e13 100%
+  );
+  height: 350px;
+  width: 1200px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: -10;
 }
 /************  what we do ************/
 .arrow-top {
@@ -290,8 +418,8 @@ marquee > div {
   transition: all 0.3s;
 }
 .what-we-do .item .inner h3 {
-  font-weight: 700;
-  font-size: 1.25rem;
+  font-weight: 500;
+  font-size: 1.0625rem;
 }
 /***** End what we do *****/
 
